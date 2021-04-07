@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pageobjects.Login;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestLogin {
 
@@ -34,8 +34,8 @@ public class TestLogin {
     @Test
     public void failedLogin() {
         login.with("tomsmith", "bad password");
-        assertTrue("failure message wasn't present after providing bogus credentials",
-                login.failureMessagePresent());
+        assertFalse("success message was present after providing bogus credentials",
+                login.successMessagePresent());
     }
 
     @After
